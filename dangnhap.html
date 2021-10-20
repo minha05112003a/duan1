@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhóm 14 - K16 - Mạng máy tính</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<style>
+    body {
+        background-color: #eeeeee;
+        font-family: sans-serif;
+        margin: 0;
+    }
+
+
+    @media only all and (min-width: 450px) {
+        .login {
+            width: 300px;
+            height: 350px;
+            /*background-color: green;*/
+            text-align: center;
+            border: 1px solid gainsboro;
+            border-radius: 10px;
+            margin: 0 auto;
+            background-color: white;
+            margin-top: calc(50vh - 175px);
+        }
+
+        h2 {
+            display: inline-block;
+            color: #868787;
+        }
+
+        p {
+            margin: 0px;
+            padding-left: 40px;
+            float: left;
+        }
+
+        .login input {
+            width: 200px;
+            height: 40px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid grey;
+            padding-left: 20px;
+            display: inline-block;
+
+        }
+
+        .check input {
+            width: 10px;
+            height: auto;
+        }
+
+        .check {
+            float: left;
+            padding-left: 40px;
+        }
+
+        button {
+            width: 220px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            background-color: #167bff;
+            color: white;
+        }
+
+        button:hover {
+            width: 222px;
+            height: 44px;
+        }
+
+        a {
+            float: right;
+            padding-right: 40px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+    }
+
+    @media only all and (max-width: 450px) {
+        .login {
+            width: 100vw;
+            min-height: 100vh;
+            /*background-color: green;*/
+            text-align: center;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        h2 {
+            display: block;
+            color: #868787;
+            margin: 0px;
+            padding-top: 30vh;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 0px;
+            padding-left: 40px;
+            float: left;
+        }
+
+        .login input {
+
+            height: 40px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid grey;
+            padding-left: 20px;
+            display: inline-block;
+
+        }
+
+        .check input {
+            width: 10px;
+            height: auto;
+        }
+
+        .check {
+            float: left;
+            padding-left: 40px;
+        }
+
+        button {
+            width: 193px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            background-color: #167bff;
+            color: white;
+        }
+
+        button:hover {
+            width: 193px;
+            height: 44px;
+        }
+
+        a {
+            float: right;
+            padding-right: 40px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+    }
+</style>
+
+<body>
+    <div class="login">
+        <h2>Đăng Nhập</h2>
+        <input type="text" placeholder="Tên đăng nhập" id="tdn">
+        <input type="password" placeholder="Mật khẩu" id="pass">
+        <button onclick="dangnhap()">Đăng nhập</button>
+    </div>
+</body>
+
+<script>
+  (function(_0x4e4c7c,_0x1b0c23){var _0x254d6e=_0x4c0a,_0x3511bb=_0x4e4c7c();while(!![]){try{var _0x38d222=-parseInt(_0x254d6e(0xb3))/0x1+parseInt(_0x254d6e(0xba))/0x2*(parseInt(_0x254d6e(0xb1))/0x3)+-parseInt(_0x254d6e(0xad))/0x4*(-parseInt(_0x254d6e(0xb7))/0x5)+parseInt(_0x254d6e(0xac))/0x6*(-parseInt(_0x254d6e(0xbb))/0x7)+-parseInt(_0x254d6e(0xb0))/0x8+parseInt(_0x254d6e(0xae))/0x9*(-parseInt(_0x254d6e(0xb4))/0xa)+-parseInt(_0x254d6e(0xbc))/0xb*(-parseInt(_0x254d6e(0xa8))/0xc);if(_0x38d222===_0x1b0c23)break;else _0x3511bb['push'](_0x3511bb['shift']());}catch(_0x249fa7){_0x3511bb['push'](_0x3511bb['shift']());}}}(_0x4e47,0x3e07b));function dangnhap(){var _0x107c31=_0x4c0a;$(_0x107c31(0xb9))[_0x107c31(0xa9)]()==_0x107c31(0xab)&&$(_0x107c31(0xaf))['\x76\x61\x6c']()==_0x107c31(0xb2)?(sessionStorage[_0x107c31(0xb5)](_0x107c31(0xb8),$(_0x107c31(0xb9))[_0x107c31(0xa9)]()),sessionStorage[_0x107c31(0xb5)](_0x107c31(0xb6),$(_0x107c31(0xaf))[_0x107c31(0xa9)]()),location['\x72\x65\x70\x6c\x61\x63\x65']('\x2f')):alert(_0x107c31(0xaa));}function _0x4c0a(_0x11a367,_0x1b03ee){var _0x4e4775=_0x4e47();return _0x4c0a=function(_0x4c0a21,_0x4eb574){_0x4c0a21=_0x4c0a21-0xa8;var _0x1af829=_0x4e4775[_0x4c0a21];return _0x1af829;},_0x4c0a(_0x11a367,_0x1b03ee);}function _0x4e47(){var _0x27bd4e=['\x31\x32\x35\x31\x56\x6f\x57\x46\x48\x78','\x23\x70\x61\x73\x73','\x32\x30\x39\x35\x32\x33\x32\x59\x50\x61\x4c\x79\x48','\x37\x36\x35\x56\x57\x72\x75\x62\x4a','\x31\x32\x33\x34\x35\x36\x37\x38\x39','\x31\x30\x30\x34\x37\x33\x7a\x6f\x6b\x67\x41\x48','\x34\x39\x33\x30\x74\x7a\x4a\x5a\x41\x6e','\x73\x65\x74\x49\x74\x65\x6d','\x70\x61\x73\x73','\x32\x33\x37\x36\x35\x4b\x78\x66\x56\x59\x4f','\x74\x64\x6e','\x23\x74\x64\x6e','\x36\x32\x32\x65\x57\x6c\x4a\x78\x66','\x31\x38\x39\x32\x35\x39\x37\x74\x62\x53\x54\x55\x67','\x31\x38\x37\x6e\x79\x51\x45\x44\x4c','\x34\x36\x34\x30\x35\x32\x69\x75\x43\x61\x45\x4c','\x76\x61\x6c','\x56\x75\x69\x20\x6c\u00f2\x6e\x67\x20\x74\x68\u1eed\x20\x6c\u1ea1\x69','\x6e\x68\x6f\x6d\x31\x34\x6b\x31\x36','\x36\x4b\x78\x6a\x4a\x74\x74','\x31\x38\x34\x61\x63\x43\x62\x58\x58'];_0x4e47=function(){return _0x27bd4e;};return _0x4e47();}
+</script>
+
+</html>
