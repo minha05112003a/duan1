@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhận file</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.3.1/peerjs.min.js"
+        integrity="sha512-wNUAk/IKoDcVSiKiN/0ormRTzENc9IbFdHa/BWNuLPtp2kG53TLf5dobOeCHoeafnlaSfjKAiSewS6AJspm/Iw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.6/css/uikit.min.css"
+        integrity="sha512-IVjm0u01kGxBO/pahfFz/1T/9il1T2wjSUT0tP8e8tFzc2/pC86OWxf6uhyJGOXT3rGyVHHpfcs10oYyibZd7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.6/js/uikit.min.js"
+        integrity="sha512-hHDFFf51AgX3Y92RqXxmnmCqiOhMRqgUHx4c5ZVISX/ExcpOZqB05/12eFyOI0XmVFHa0LmVDmVkh4ONOS41BA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.6/js/uikit-icons.min.js"
+        integrity="sha512-VjU6s2XO1wHMl2ezJp9Ssc+VUWOP81XAr1tAOr7b5HIx/Roq+jdnnLz0YPNwrUTFXgAaiRJcwB6GVHisKV3ZtQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<style>
+    /* width */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #ffffff;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: rgb(167, 165, 165);
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgb(121, 120, 120);
+    }
+
+    @media only all and (min-width: 700px) {
+        #pc {
+            display: block;
+        }
+
+        #mb {
+            display: none;
+        }
+    }
+
+    @media (orientation: landscape) {
+        .imga {
+            display: block;
+        }
+
+        .nd {
+            position: fixed;
+            top: 25%;
+            left: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            height: 350px;
+            width: 350px;
+        }
+
+        .nda {
+            overflow-y: scroll;
+            height: 350px;
+        }
+    }
+
+    @media (orientation: portrait) {
+        .imga {
+            display: none;
+        }
+
+        .nda {
+            min-height: 100vh;
+        }
+    }
+</style>
+
+<body style="margin: 0px;">
+    <div style="position: fixed;z-index: -1;" class="imga">
+        <img src="https://raw.githubusercontent.com/minha05112003a/duan1/main/img/bg.jpg" alt="" srcset="" style="height: 100vh;width: 100vw;">
+    </div>
+    <div class="nd">
+        <div class="uk-card uk-card-default uk-card-body nda" style="overflow-y: scroll;height: 350px;">
+            <div class="trang1">
+                <h3 class="uk-card-title">Nhận file</h3>
+                <p>Nhập ID phòng:</p>
+                <div class="uk-inline">
+                    <span class="uk-form-icon" uk-icon="icon: pencil"></span>
+                    <input type="text" placeholder="ID phòng" id="id" class="uk-input">
+                </div>
+                <div style="height: 40px;"></div>
+                <input type="button" value="Kết nối" onclick="ketnoi()" class="uk-button uk-button-primary">
+                <br>
+                <br>
+            </div>
+            <div class="trang2" style="display: none;">
+                <h3 class="uk-card-title">Nhận file</h3>
+                <ul class="uk-list uk-list-divider" id="dlfile">
+                </ul>
+            </div>
+        </div>
+        <br>
+        <h3></h3>
+
+    </div>
+</body>
+
+<script>
+    var peer = new Peer();
+    function ketnoi() {
+        // Kết nối
+        var id = "ekRSeVBkOWt1c3BqcGZvZ3ZTcHA4bGNReVd1NWNQ" + $("#id").val();
+        var conn = peer.connect(id);
+        peer.on('error', function (err) { console.log(err) });
+        // nhận dữ liệu
+        conn.on('data', (data) => {
+            if (data == "1") {
+                UIkit.notification({ message: '<span  style="font-size: 16px;font-weight:600">Đã kết nối</span>', status: 'success' });
+                $(".trang1").hide();
+                $(".trang2").show()
+            } else {
+                var blob = new Blob([data.file]);
+                var url = URL.createObjectURL(blob);
+                $("#dlfile").append(' \<li><a href="'+url+'" download="'+data.filename+'"><span uk-icon="download"></span>&nbsp;<span>'+data.filename+'</span></a></li>');
+            }
+        });
+    }
+
+    $.urlParam = function (name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if (results == null) {
+            return null;
+        }
+        return decodeURI(results[1]) || 0;
+    }
+
+    var idphong = $.urlParam('id');
+    console.log(idphong)
+    if (idphong == null) {
+    } else {
+        $("#id").val(idphong);
+    }
+</script>
+
+</html>
