@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhóm 14 - K16 - Mạng máy tính</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.6/css/uikit.min.css"
+        integrity="sha512-IVjm0u01kGxBO/pahfFz/1T/9il1T2wjSUT0tP8e8tFzc2/pC86OWxf6uhyJGOXT3rGyVHHpfcs10oYyibZd7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.6/js/uikit.min.js"
+        integrity="sha512-hHDFFf51AgX3Y92RqXxmnmCqiOhMRqgUHx4c5ZVISX/ExcpOZqB05/12eFyOI0XmVFHa0LmVDmVkh4ONOS41BA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.6/js/uikit-icons.min.js"
+        integrity="sha512-VjU6s2XO1wHMl2ezJp9Ssc+VUWOP81XAr1tAOr7b5HIx/Roq+jdnnLz0YPNwrUTFXgAaiRJcwB6GVHisKV3ZtQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<style>
+    body {
+        background-color: #eeeeee;
+        font-family: sans-serif;
+        margin: 0;
+        min-height: 100vh;
+    }
+
+
+    @media only all and (min-width: 450px) {
+        body {
+            padding-top: calc(50vh - 175px);
+            background-image: url("https://raw.githubusercontent.com/minha05112003a/duan1/main/img/bgdn.jpg");
+            background-repeat: no-repeat;
+            background-size: auto;
+        }
+
+        .login {
+            width: 300px;
+            height: 350px;
+            /*background-color: green;*/
+            text-align: center;
+            border: 1px solid gainsboro;
+            border-radius: 10px;
+            margin: 0 auto;
+            background-color: white;
+        }
+
+        h2 {
+            display: inline-block;
+            color: #868787;
+        }
+
+        p {
+            margin: 0px;
+            padding-left: 40px;
+            float: left;
+        }
+
+        .login input {
+            width: 200px;
+            height: 40px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid grey;
+            padding-left: 20px;
+            display: inline-block;
+
+        }
+
+        .check input {
+            width: 10px;
+            height: auto;
+        }
+
+        .check {
+            float: left;
+            padding-left: 40px;
+        }
+
+        button {
+            width: 220px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            background-color: #167bff;
+            color: white;
+        }
+
+        button:hover {
+            width: 222px;
+            height: 44px;
+        }
+
+        a {
+            float: right;
+            padding-right: 40px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+    }
+
+    @media only all and (max-width: 450px) {
+        .login {
+            width: 100vw;
+            min-height: 100vh;
+            /*background-color: green;*/
+            text-align: center;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        h2 {
+            display: block;
+            color: #868787;
+            margin: 0px;
+            padding-top: 30vh;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 0px;
+            padding-left: 40px;
+            float: left;
+        }
+
+        .login input {
+
+            height: 40px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid grey;
+            padding-left: 20px;
+            display: inline-block;
+
+        }
+
+        .check input {
+            width: 10px;
+            height: auto;
+        }
+
+        .check {
+            float: left;
+            padding-left: 40px;
+        }
+
+        button {
+            width: 193px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            background-color: #167bff;
+            color: white;
+        }
+
+        button:hover {
+            width: 193px;
+            height: 44px;
+        }
+
+        a {
+            float: right;
+            padding-right: 40px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+    }
+</style>
+
+<body>
+    <div class="login">
+        <div style="height: 2px;"></div>
+        <h2>Đăng Nhập</h2>
+        <input type="text" placeholder="Tên đăng nhập" id="tdn">
+        <input type="password" placeholder="Mật khẩu" id="pass">
+        <button onclick="dangnhap()">Đăng nhập</button>
+        <div style="margin-top:40px;display: flex;justify-content: center;">
+            <a class="uk-button uk-button-default" href="./dangki.html">Đăng ký</a>
+        </div>
+
+    </div>
+</body>
+
+<script>
+    function dangnhap() {
+        var tdn = $("#tdn").val();
+        var pass = $("#pass").val();
+        $.ajax({
+            url: "./maychu/dangnhap.php",
+            method: "POST",
+            data: { tdn: tdn, pass: pass },
+            success: function (data) {
+                if (data == "1") {
+                    UIkit.notification({ message: '<span  style="font-size: 16px;font-weight:600">Đăng nhập thành công</span>', status: 'success' })
+                    localStorage.setItem('data', '1');
+                    location.replace("./")
+                } else {
+                    UIkit.notification({ message: '<span  style="font-size: 16px;font-weight:600">Vui lòng thử lại</span>', status: 'warning' })
+                }
+            }
+        })
+    }
+</script>
+
+</html>
