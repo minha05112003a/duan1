@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin nhắn</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.3.1/peerjs.min.js"
+        integrity="sha512-wNUAk/IKoDcVSiKiN/0ormRTzENc9IbFdHa/BWNuLPtp2kG53TLf5dobOeCHoeafnlaSfjKAiSewS6AJspm/Iw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.6/css/uikit.min.css"
+        integrity="sha512-IVjm0u01kGxBO/pahfFz/1T/9il1T2wjSUT0tP8e8tFzc2/pC86OWxf6uhyJGOXT3rGyVHHpfcs10oYyibZd7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.6/js/uikit.min.js"
+        integrity="sha512-hHDFFf51AgX3Y92RqXxmnmCqiOhMRqgUHx4c5ZVISX/ExcpOZqB05/12eFyOI0XmVFHa0LmVDmVkh4ONOS41BA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.6/js/uikit-icons.min.js"
+        integrity="sha512-VjU6s2XO1wHMl2ezJp9Ssc+VUWOP81XAr1tAOr7b5HIx/Roq+jdnnLz0YPNwrUTFXgAaiRJcwB6GVHisKV3ZtQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+        integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<style>
+    /* width */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #ffffff;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: rgb(167, 165, 165);
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgb(121, 120, 120);
+    }
+
+    @media (orientation: landscape) {
+        .imga {
+            display: block;
+        }
+
+        .nd {
+            position: fixed;
+            top: 25%;
+            left: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            height: 350px;
+            width: 350px;
+        }
+
+        .nda {
+            overflow-y: scroll;
+            height: 350px;
+        }
+    }
+
+    @media (orientation: portrait) {
+        .imga {
+            display: none;
+        }
+
+        .nda {
+            min-height: 100vh;
+        }
+    }
+</style>
+
+<body style="margin: 0px;">
+    <div style="position: fixed;z-index: -1;" class="imga">
+        <img src="https://raw.githubusercontent.com/minha05112003a/duan1/main/img/bg.jpg" alt="" srcset="" style="height: 100vh;width: 100vw;">
+    </div>
+    <div class="nd">
+        <div class="uk-card uk-card-default uk-card-body nda">
+            <div class="trang1">
+                <div style="position: absolute;right: 10px;top: 20px;" onclick="them()">
+                    <span uk-icon="icon: file-edit"></span>&nbsp;
+                    <a href="#">Thêm tin nhắn</a>
+                </div>
+                <h3 class="uk-card-title">Xem tin nhắn</h3>
+                <p>Nhập ID tin nhắn:</p>
+                <div class="uk-inline">
+                    <span class="uk-form-icon" uk-icon="icon: pencil"></span>
+                    <input type="text" placeholder="ID tin nhắn" id="idtn" class="uk-input">
+                </div>
+                <p>Nhập mật khẩu:</p>
+                <div class="uk-inline">
+                    <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                    <input type="text" placeholder="ID tin nhắn" id="pstn" class="uk-input">
+                </div>
+                <div style="height: 40px;"></div>
+                <input type="button" value="Xem" onclick="ketnoi()" class="uk-button uk-button-primary">
+                <br>
+                <br>
+            </div>
+            <div class="trang2" style="display: none;">
+                <div style="position: absolute;right: 10px;top: 20px;" onclick="them()">
+                    <span uk-icon="icon: file-edit"></span>&nbsp;
+                    <a href="#">Thêm tin nhắn</a>
+                </div>
+                <h3 class="uk-card-title">Thêm tin nhắn mới</h3>
+                <p>Nội dung tin nhắn:</p>
+                <div class="uk-inline">
+                    <span class="uk-form-icon" uk-icon="icon: pencil"></span>
+                    <input type="text" placeholder="Aa" id="tn" class="uk-input">
+                </div>
+                <p>Mật khẩu:</p>
+                <div class="uk-inline">
+                    <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                    <input type="password" placeholder="Aa" id="ps" class="uk-input">
+                </div>
+                <div style="height: 40px;"></div>
+                <input type="button" value="Thêm" onclick="themtn()" class="uk-button uk-button-primary">
+                <br>
+                <br>
+            </div>
+            <div class="trang3" style="display: none;">
+                <h3 class="uk-card-title">Đã gửi</h3>
+                ID tin nhắn: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=".uk-text-primary idphong"
+                    style="font-size: 30px;">
+                    <div uk-spinner></div>
+                </span>
+                <br><br>
+            </div>
+            <div class="trang4" style="display: none;">
+                <h3 class="uk-card-title">Đã gửi</h3>
+                <div style="display: flex;justify-content: space-between;">
+                    <div>
+                        Tin nhắn:
+                    </div>
+                    <div uk-tooltip="Đã sao chép" id="copy">
+                        <span uk-icon="copy"></span>
+                    </div>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id="tinnhana" style="word-break: break-all;">
+
+                </div>
+                <br><br>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+<script>
+    function them() {
+        $(".trang1").hide();
+        $(".trang2").show();
+    }
+
+    function themtn() {
+        var tn = $("#tn").val();
+        var ps = $("#ps").val();
+        UIkit.notification({ message: '<span  style="font-size: 16px;font-weight:600">Đang gửi tin nhắn</span>', status: 'success' })
+        $.ajax({
+            url: "./maychu/themtn.php",
+            method: "POST",
+            data: { tn: tn, ps: ps },
+            success: function (data) {
+                console.log(data)
+                if (data) {
+                    $(".trang2").hide();
+                    $(".trang3").show();
+                    $(".idphong").text(data);
+                }
+            }
+        })
+    }
+    function ketnoi() {
+        var idtn = $("#idtn").val();
+        var pstn = $("#pstn").val();
+        $.ajax({
+            url: "./maychu/xemtn.php",
+            method: "POST",
+            data: { tn: idtn, ps: pstn },
+            success: function (data) {
+                console.log(data)
+                if (data) {
+                    $(".trang1").hide();
+                    $(".trang4").show();
+                    $("#tinnhana").text(data);
+                } else {
+                    UIkit.notification({ message: '<span  style="font-size: 16px;font-weight:600">Vui lòng thử lại</span>', status: 'warning' })
+                }
+            }
+        })
+    }
+
+    $("#copy").mousemove(function (event) {
+        copyToClipboard("#tinnhana")
+        
+    });
+    function copyToClipboard(element) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).html()).select();
+        document.execCommand("copy");
+        $temp.remove();
+    }
+</script>
+
+</html>
