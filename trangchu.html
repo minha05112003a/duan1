@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+
+</head>
+<style>
+    body {
+        margin: 0px;
+    }
+
+    .pc {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .mb {
+        width: 100vw;
+    }
+
+    @media (orientation: landscape) {
+        .pc {
+            display: block;
+        }
+
+        .mb {
+            display: none;
+        }
+    }
+
+    @media (orientation: portrait) {
+        .mb {
+            display: block;
+        }
+
+        .pc {
+            display: none;
+        }
+    }
+</style>
+
+<body>
+    <img src="https://raw.githubusercontent.com/minha05112003a/duan1/main/img/uchiha.jpg" class="pc">
+    <img src="https://raw.githubusercontent.com/minha05112003a/duan1/main/img/uchia.jpg" class="mb">
+</body>
+
+</html>
