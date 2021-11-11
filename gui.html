@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gửi file</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.3.1/peerjs.min.js"
+        integrity="sha512-wNUAk/IKoDcVSiKiN/0ormRTzENc9IbFdHa/BWNuLPtp2kG53TLf5dobOeCHoeafnlaSfjKAiSewS6AJspm/Iw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.6/css/uikit.min.css"
+        integrity="sha512-IVjm0u01kGxBO/pahfFz/1T/9il1T2wjSUT0tP8e8tFzc2/pC86OWxf6uhyJGOXT3rGyVHHpfcs10oYyibZd7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.6/js/uikit.min.js"
+        integrity="sha512-hHDFFf51AgX3Y92RqXxmnmCqiOhMRqgUHx4c5ZVISX/ExcpOZqB05/12eFyOI0XmVFHa0LmVDmVkh4ONOS41BA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.6/js/uikit-icons.min.js"
+        integrity="sha512-VjU6s2XO1wHMl2ezJp9Ssc+VUWOP81XAr1tAOr7b5HIx/Roq+jdnnLz0YPNwrUTFXgAaiRJcwB6GVHisKV3ZtQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+        integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<style>
+    /* width */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #ffffff;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: rgb(167, 165, 165);
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgb(121, 120, 120);
+    }
+
+    @media (orientation: landscape) {
+        .imga {
+            display: block;
+        }
+
+        .nd {
+            position: fixed;
+            top: 25%;
+            left: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            height: 350px;
+            width: 350px;
+        }
+
+        .nda {
+            overflow-y: scroll;
+            height: 350px;
+        }
+    }
+
+    @media (orientation: portrait) {
+        .imga {
+            display: none;
+        }
+
+        .nda {
+            min-height: 100vh;
+        }
+    }
+</style>
+
+<body style="margin: 0px;">
+    <div style="position: fixed;z-index: -1;" class="imga">
+        <img src="https://raw.githubusercontent.com/minha05112003a/duan1/main/img/bg.jpg" alt="" srcset="" style="height: 100vh;width: 100vw;">
+    </div>
+    <div class="nd">
+        <div class="uk-card uk-card-default uk-card-body nda">
+            <div class="trang1">
+                <h3 class="uk-card-title">Gửi file</h3>
+                ID phòng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=".uk-text-primary idphong"
+                    style="font-size: 30px;">
+                    <div uk-spinner></div>
+                </span>
+                <br><br>
+
+
+                <a href="#modal-example" uk-toggle>
+                    <div id="qrcode" style="margin-left: 60px;"></div>
+                </a>
+            </div>
+            <div class="trang2" style="display: none;">
+                <div class="js-upload uk-placeholder uk-text-center">
+                    <div uk-form-custom>
+                        <input type="file" id="file">
+                        <span uk-icon="icon: cloud-upload"></span>&nbsp;
+                        <span class="uk-text-middle uk-link">Chọn file tải lên</span>
+                    </div>
+
+                </div>
+                <progress id="js-progressbar" class="uk-progress" value="10" max="100" style="display: none;"></progress>
+                <ul class="uk-list uk-list-divider" id="filetl">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- This is the modal -->
+    <div id="modal-example" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body" style="text-align: center;">
+            <h3 class="uk-card-title">Gửi file</h3>
+            ID phòng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=".uk-text-primary idphong"
+                style="font-size: 30px;">
+                <div uk-spinner></div>
+            </span>
+            <br><br>
+            <div id="qrcode1" style="display:flex;justify-content: center;"></div>
+            <p class="uk-text-right">
+                <button class="uk-button uk-button-primary uk-modal-close" type="button">Đóng</button>
+            </p>
+        </div>
+    </div>
+</body>
+
+<script>
+    var ketnoi = null;
+    setTimeout(() => {
+        var time = (new Date()).getTime().toString().split('');
+        var time1 = time[7] + " " + time[8] + " " + time[9] + " " + time[10] + " " + time[11] + " " + time[12];
+        var time2 = time[7] + time[8] + time[9] + time[10] + time[11] + time[12];
+        $(".idphong").text(time1)
+        var idphong = "ekRSeVBkOWt1c3BqcGZvZ3ZTcHA4bGNReVd1NWNQ" + time2;
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: "?id=" + time2,
+            width: 148,
+            height: 148,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+        var qrcode1 = new QRCode(document.getElementById("qrcode1"), {
+            text: "?id=" + time2,
+            width: 308,
+            height: 308,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+
+        var peer = new Peer(idphong);
+
+        // bắt đầu kết nối
+        peer.on('connection', (conn) => {
+            ketnoi1(conn);
+        });
+    }, 1000);
+
+    function ketnoi1(a) {
+        ketnoi = a;
+    }
+
+    let ping = setInterval(() => {
+        try {
+            ketnoi.send("1")
+            UIkit.notification({ message: '<span  style="font-size: 16px;font-weight:600">Kết nối thành công</span>', status: 'success' })
+            clearInterval(ping);
+            $(".trang1").hide();
+            $(".trang2").show();
+            setTimeout(() => {
+                ketnoi.send("1")
+            }, 1000);
+
+        } catch (e) {
+        }
+    }, 1000);
+    // Lấy dữ liệu file để gửi
+    document.querySelector('#file').onchange = function (event) {
+        $("#js-progressbar").show();
+        const file = event.target.files[0]
+        const blob = new Blob(event.target.files, { type: file.type });
+        $("#filetl").append('<li><span uk-icon="folder"></span>&nbsp; ' + file.name + '</li>');
+        var bar = document.getElementById('js-progressbar');
+        var animate = setInterval(function () {
+            bar.value += 10;
+            if (bar.value >= bar.max) {
+                clearInterval(animate);
+                $("#js-progressbar").hide();
+                bar.value = 10;
+            }
+        }, 500);
+        ketnoi.send({
+            file: blob,
+            filename: file.name,
+            filetype: file.type
+        })
+    }
+</script>
+
+</html>
