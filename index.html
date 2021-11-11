@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhóm 14 - K16 - Mạng máy tính</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.6/css/uikit.min.css"
+        integrity="sha512-IVjm0u01kGxBO/pahfFz/1T/9il1T2wjSUT0tP8e8tFzc2/pC86OWxf6uhyJGOXT3rGyVHHpfcs10oYyibZd7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.6/js/uikit.min.js"
+        integrity="sha512-hHDFFf51AgX3Y92RqXxmnmCqiOhMRqgUHx4c5ZVISX/ExcpOZqB05/12eFyOI0XmVFHa0LmVDmVkh4ONOS41BA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.6/js/uikit-icons.min.js"
+        integrity="sha512-VjU6s2XO1wHMl2ezJp9Ssc+VUWOP81XAr1tAOr7b5HIx/Roq+jdnnLz0YPNwrUTFXgAaiRJcwB6GVHisKV3ZtQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<style>
+    .pc-trai {
+        width: 80px;
+        padding: 30px 10px;
+        text-align: center;
+    }
+
+    .pc-tab {
+        margin-left: 15px;
+    }
+
+    .pc-li {
+        height: 60px;
+    }
+
+    .pc-timkiem {
+        margin-left: 35px;
+        margin-top: 40px;
+    }
+
+    @media only all and (min-width: 700px) {
+        #pc {
+            display: block;
+        }
+
+        #mb {
+            display: none;
+        }
+    }
+
+    @media only all and (max-width: 700px) {
+        #pc {
+            display: none;
+        }
+
+        #mb {
+            display: block;
+        }
+    }
+</style>
+
+<body>
+    <div id="pc">
+        <div style="display: flex;">
+            <div class="pc-trai">
+                <img src="./favicon.ico" style="width:45px">
+                <p class="uk-article-meta">14K16</p>
+                <div style="height: 10px;"></div>
+                <ul class="uk-tab-right pc-tab" uk-tab>
+                    <li class="pc-li" uk-tooltip="Trang chủ" onclick="tab1()">
+                        <a href="#"><span uk-icon="icon: home; ratio: 1.5"></span></a>
+                    </li>
+
+                    <li class="uk-active pc-li" uk-tooltip="Ứng dụng trên cloud">
+                        <a href="#"><span uk-icon="icon:  cloud-upload; ratio: 1.5"></span></a>
+                    </li>
+
+                    <li class="pc-li" uk-tooltip="Github" onclick="tab3()">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><span
+                                uk-icon="icon:  github; ratio: 1.5"></span></a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <div class="pc-timkiem">
+                    <form class="uk-search uk-search-default">
+                        <span uk-search-icon></span>
+                        <input class="uk-search-input" type="search" placeholder="Search" style="border-radius: 10px;"
+                            list="brow">
+                        <datalist id="brow">
+                            <option value="Gửi file">
+                            <option value="Truyền file">
+                            <option value="Tin nhắn">
+                        </datalist>
+                    </form>
+                </div>
+                <span class="uk-icon-button" uk-icon="user" style="position: absolute;right: 40px;top: 40px;"></span>
+                <div style="margin-left: 35px;margin-top: 80px;">
+                    <h1 class="uk-text-lead">Nhóm 14 - K16 - Mạng máy tính</h1>
+                    <p style="font-size: 20px;">Sử dụng ứng dụng trên đám mây</p>
+                    <ul class="uk-list uk-list-disc">
+                        <li>Gửi file</li>
+                        <li>Nhận file</li>
+                        <li>Gửi tin nhắn</li>
+                    </ul>
+                </div>
+                <div style="height: 30px;"></div>
+                <div style="display: flex;">
+                    <div style="margin-left: 40px;">
+                        <div class="uk-text-center">
+                            <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                                <img src="https://i.ibb.co/tDgrTnf/t-i-xu-ng.jpg"
+                                    alt="z-Lw-B9g-Qcn4-Rt-Ry-YL9-W81-R4-SJPFqd-QA7m3-EUp-L0-Dnhq-SDUom-Tefw6f-SQEBSTQ"
+                                    style="width: 250px;border-radius: 6px;height: 156px;">
+                                <a href="./gui.html">
+                                    <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-default"
+                                        style="background-color: #51c1f5;padding: 0px;cursor: pointer;"
+                                        uk-toggle="target: #modal-example1">
+                                        <p class="uk-h4 uk-margin-remove"
+                                            style="font-size: 16px;font-weight: 600;padding: 8px;color: #fff;"><span
+                                                uk-icon="heart"></span>&nbsp;&nbsp;Chơi trên Cloud</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <span style="font-size: 20px;">Gửi file</span><br>
+                            <span class="uk-article-meta">Gửi file</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-left: 40px;">
+                        <div class="uk-text-center">
+                            <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                                <img src="https://i.ibb.co/ZcyMptd/A1w-SW234-U2-LQZol-CXIao-IKk623-Xg-JSkz8-RWMd5-FGa-Zruh-Er2-I3y-JVu-Zy-Odd-ZFz-M8h5-Zf-Q7g-YNXNx-Ilk.png"
+                                    style="width: 250px;border-radius: 6px;height: 156px;">
+                                <a href="./nhan.html">
+                                    <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-default"
+                                        style="background-color: #51c1f5;padding: 0px;cursor: pointer;"
+                                        uk-toggle="target: #modal-example2">
+                                        <p class="uk-h4 uk-margin-remove"
+                                            style="font-size: 16px;font-weight: 600;padding: 8px;color: #fff;"><span
+                                                uk-icon="heart"></span>&nbsp;&nbsp;Chơi trên Cloud</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <span style="font-size: 20px;">Nhận file</span><br>
+                            <span class="uk-article-meta">Nhận file</span>
+                        </div>
+                    </div>
+
+
+                    <div style="margin-left: 40px;">
+                        <div class="uk-text-center">
+                            <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                                <img src="https://i.ibb.co/FH6DSym/unnamed.png"
+                                    style="width: 250px;border-radius: 6px;height: 156px;">
+                                <a href="./tinnhan.html">
+                                    <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-default"
+                                        style="background-color: #51c1f5;padding: 0px;cursor: pointer;"
+                                        uk-toggle="target: #modal-example2">
+                                        <p class="uk-h4 uk-margin-remove"
+                                            style="font-size: 16px;font-weight: 600;padding: 8px;color: #fff;"><span
+                                                uk-icon="heart"></span>&nbsp;&nbsp;Chơi trên Cloud</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <span style="font-size: 20px;">Tin nhắn</span><br>
+                            <span class="uk-article-meta">Tin nhắn</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div style="height: 30px;"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="mb">
+
+        <div style="display: flex;align-items: center;padding: 10px;justify-content: space-between;">
+            <img src="./favicon.ico" style="width:30px;height: 30px;margin-right: 25px;">
+            <div>
+                <form class="uk-search uk-search-default">
+                    <span uk-search-icon></span>
+                    <input class="uk-search-input" type="search" placeholder="Search" style="border-radius: 10px;"
+                        list="brow">
+                    <datalist id="brow">
+                        <option value="Gửi file">
+                        <option value="Truyền file">
+                        <option value="Tin nhắn">
+                    </datalist>
+                </form>
+            </div>
+        </div>
+
+
+        <div>
+            <div style="margin-left: 35px;margin-top: 40px;">
+                <h1 class="uk-text-lead">Nhóm 14 - K16 - Mạng máy tính</h1>
+                <p style="font-size: 20px;">Giới thiệu các dự án</p>
+                <ul class="uk-list uk-list-disc">
+                    <li>Gửi file</li>
+                    <li>Truyền file</li>
+                    <li>Gửi tin nhắn</li>
+                </ul>
+            </div>
+            <div style="height: 30px;"></div>
+
+
+            <div class="uk-text-center">
+                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                    <img src="https://i.ibb.co/tDgrTnf/t-i-xu-ng.jpg"
+                        alt="z-Lw-B9g-Qcn4-Rt-Ry-YL9-W81-R4-SJPFqd-QA7m3-EUp-L0-Dnhq-SDUom-Tefw6f-SQEBSTQ"
+                        style="width: 250px;border-radius: 6px;height: 156px;">
+                    <a href="./gui.html">
+                        <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-default"
+                            style="background-color: #51c1f5;padding: 0px;cursor: pointer;"
+                            uk-toggle="target: #modal-example1">
+                            <p class="uk-h4 uk-margin-remove"
+                                style="font-size: 16px;font-weight: 600;padding: 8px;color: #fff;"><span
+                                    uk-icon="heart"></span>&nbsp;&nbsp;Chơi trên Cloud</p>
+                        </div>
+                    </a>
+                </div>
+                <div style="margin-top: 10px;">
+                    <span style="font-size: 20px;">Gửi file</span><br>
+                    <span class="uk-article-meta">Gửi file</span>
+                </div>
+            </div>
+            <div style="height: 30px;"></div>
+
+            <div class="uk-text-center">
+                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                    <img src="https://i.ibb.co/ZcyMptd/A1w-SW234-U2-LQZol-CXIao-IKk623-Xg-JSkz8-RWMd5-FGa-Zruh-Er2-I3y-JVu-Zy-Odd-ZFz-M8h5-Zf-Q7g-YNXNx-Ilk.png"
+                        style="width: 250px;border-radius: 6px;height: 156px;">
+                    <a href="./nhan.html">
+                        <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-default"
+                            style="background-color: #51c1f5;padding: 0px;cursor: pointer;"
+                            uk-toggle="target: #modal-example2">
+                            <p class="uk-h4 uk-margin-remove"
+                                style="font-size: 16px;font-weight: 600;padding: 8px;color: #fff;"><span
+                                    uk-icon="heart"></span>&nbsp;&nbsp;Chơi trên Cloud</p>
+                        </div>
+                    </a>
+                </div>
+                <div style="margin-top: 10px;">
+                    <span style="font-size: 20px;">Truyền file</span><br>
+                    <span class="uk-article-meta">Truyền file</span>
+                </div>
+            </div>
+            <div style="height: 30px;"></div>
+
+            <div class="uk-text-center">
+                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                    <img src="https://i.ibb.co/FH6DSym/unnamed.png"
+                        style="width: 250px;border-radius: 6px;height: 156px;">
+                    <a href="./tinnhan.html">
+                        <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-default"
+                            style="background-color: #51c1f5;padding: 0px;cursor: pointer;"
+                            uk-toggle="target: #modal-example2">
+                            <p class="uk-h4 uk-margin-remove"
+                                style="font-size: 16px;font-weight: 600;padding: 8px;color: #fff;"><span
+                                    uk-icon="heart"></span>&nbsp;&nbsp;Chơi trên Cloud</p>
+                        </div>
+                    </a>
+                </div>
+                <div style="margin-top: 10px;">
+                    <span style="font-size: 20px;">Tin nhắn</span><br>
+                    <span class="uk-article-meta">Tin nhắn</span>
+                </div>
+            </div>
+            <div style="height: 100px;"></div>
+        </div>
+
+        <div
+            style="position: fixed;bottom: -38px;left: 0px;right: 0px;background-color: #fff;padding-top: 8px;border-top: 1px solid gray;">
+            <ul class="uk-child-width-expand" uk-tab>
+                <li class="pc-li" uk-tooltip="Trang chủ" onclick="tab1()">
+                    <a href="#"><span uk-icon="icon: home; ratio: 1.5"></span></a>
+                </li>
+
+                <li class="uk-active pc-li" uk-tooltip="Ứng dụng trên cloud">
+                    <a href="#"><span uk-icon="icon:  cloud-upload; ratio: 1.5"></span></a>
+                </li>
+
+                <li class="pc-li" uk-tooltip="Github" onclick="tab3()">
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><span
+                            uk-icon="icon:  github; ratio: 1.5"></span></a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+
+<script>
+    function tab3() {
+        window.open('https://github.com/minha05112003a/duan1', '_blank').focus();
+    }
+    function tab1() {
+        location.assign("./trangchu.html")
+    }
+    const cat = localStorage.getItem('data');
+    if (cat == "1") {
+        
+    }else{
+        location.replace("./dangnhap.html")
+    }
+</script>
+
+</html>
